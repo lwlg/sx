@@ -30,7 +30,18 @@ namespace sxpos.Settings
             {
                 if (!String.IsNullOrEmpty(dicType))
                 {
-                    treeView1.SelectedNode = treeView1.Nodes.Find(dicType, true)[0];
+                    try
+                    {
+                        TreeNode[] tn = treeView1.Nodes.Find(dicType, true);
+                        if(tn.Length != 0)
+                        {
+                            treeView1.SelectedNode = tn[0];
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
                 }
             }
             List<CustomAttribute> cols = sx.Service.DicService.r.GetCustomFieldsByType("GridCol");
@@ -132,6 +143,11 @@ namespace sxpos.Settings
                rectangle,
                dataGridView1.RowHeadersDefaultCellStyle.ForeColor,
                TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter);
+        }
+
+        private void DicList_Activated(object sender, EventArgs e)
+        {
+            this.DicList_Load(sender, e);
         }
 
     }

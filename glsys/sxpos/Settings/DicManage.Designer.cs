@@ -30,15 +30,15 @@
         {
             this.varDType = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.varMemo = new System.Windows.Forms.RichTextBox();
+            this.varSequence = new System.Windows.Forms.TextBox();
+            this.varDName = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.varDName = new System.Windows.Forms.TextBox();
-            this.varSequence = new System.Windows.Forms.TextBox();
-            this.varMemo = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +67,65 @@
             this.groupBox1.Size = new System.Drawing.Size(260, 237);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "添加;";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 117);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 12);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "备注:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 89);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "排列顺序:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 12);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "类别名称项:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "类别名称";
+            // 
+            // varMemo
+            // 
+            this.varMemo.Location = new System.Drawing.Point(98, 114);
+            this.varMemo.Name = "varMemo";
+            this.varMemo.Size = new System.Drawing.Size(121, 74);
+            this.varMemo.TabIndex = 4;
+            this.varMemo.Text = "";
+            // 
+            // varSequence
+            // 
+            this.varSequence.Location = new System.Drawing.Point(98, 86);
+            this.varSequence.Name = "varSequence";
+            this.varSequence.Size = new System.Drawing.Size(121, 21);
+            this.varSequence.TabIndex = 3;
+            // 
+            // varDName
+            // 
+            this.varDName.Location = new System.Drawing.Point(98, 59);
+            this.varDName.Name = "varDName";
+            this.varDName.Size = new System.Drawing.Size(121, 21);
+            this.varDName.TabIndex = 3;
             // 
             // btnClose
             // 
@@ -88,64 +146,6 @@
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // varDName
-            // 
-            this.varDName.Location = new System.Drawing.Point(98, 59);
-            this.varDName.Name = "varDName";
-            this.varDName.Size = new System.Drawing.Size(121, 21);
-            this.varDName.TabIndex = 3;
-            // 
-            // varSequence
-            // 
-            this.varSequence.Location = new System.Drawing.Point(98, 86);
-            this.varSequence.Name = "varSequence";
-            this.varSequence.Size = new System.Drawing.Size(121, 21);
-            this.varSequence.TabIndex = 3;
-            // 
-            // varMemo
-            // 
-            this.varMemo.Location = new System.Drawing.Point(98, 114);
-            this.varMemo.Name = "varMemo";
-            this.varMemo.Size = new System.Drawing.Size(121, 74);
-            this.varMemo.TabIndex = 4;
-            this.varMemo.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "类别名称";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 12);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "类别名称项:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 89);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "排列顺序:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 117);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 12);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "备注:";
             // 
             // DicManage
             // 
