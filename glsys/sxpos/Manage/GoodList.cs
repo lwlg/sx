@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*
+ 查询所有商品类别
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +25,8 @@ namespace sxpos.Manage
             switch (e.KeyCode)
             {
                 case Keys.F2://商品入库
-                    //btnGoodsIn
+                    GoodIn frm = new GoodIn();
+                    frm.ShowDialog();
                     break;
                 default:
                     e.Handled = false;
@@ -34,6 +38,19 @@ namespace sxpos.Manage
         {
             //NDolls.Forms.WinUtil.InitComboBox(varCategory,"DName", "DName",)
         }
+
+        /// <summary>
+        /// 添加商品信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            GoodMng frm = new GoodMng();
+            frm.ShowDialog();
+        }
+
+
 
         
     }

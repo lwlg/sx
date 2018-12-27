@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ 添加商品信息
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
