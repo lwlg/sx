@@ -104,6 +104,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage\GoodIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage\GoodIn.Designer.cs">
+      <DependentUpon>GoodIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage\GoodInList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,12 @@
     </Compile>
     <Compile Include="Manage\GoodMng.Designer.cs">
       <DependentUpon>GoodMng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\SupplierList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage\SupplierList.Designer.cs">
+      <DependentUpon>SupplierList.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,11 +163,17 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manage\GoodIn.resx">
+      <DependentUpon>GoodIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manage\GoodList.resx">
       <DependentUpon>GoodList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage\GoodMng.resx">
       <DependentUpon>GoodMng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\SupplierList.resx">
+      <DependentUpon>SupplierList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

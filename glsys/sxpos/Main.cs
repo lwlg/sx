@@ -20,19 +20,82 @@ namespace sxpos
         {
             InitializeComponent();
             //启动数据库备份任务
-
             
             #region 事件注册
             sx.Controls.Ribbon rb = elementHost1.Child as sx.Controls.Ribbon;
+            //菜单一
+            rb.btnCash.Click += btnCash_Click;           //商品销售
+            rb.btnGoods.Click += btnGoods_Click;         //商品管理
+            rb.btnMember.Click += btnMember_Click;       //会员管理   
+            rb.btnIns.Click += btnIns_Click;             //入库记录
+            rb.btnSale.Click += btnSale_Click;           //销售记录
 
-            rb.btnCash.Click += btnCash_Click;
-            rb.btnGoods.Click += btnGoods_Click;
-            rb.btnExit.Click += btnExit_Click;
+            rb.btnChangePwd.Click += btnChangePwd_Click; //修改密码
+            rb.btnRestart.Click += btnRestart_Click;     //系统注销
+            rb.btnExit.Click += btnExit_Click;           //退出系统
 
-            rb.btnGoodsType.Click += btnGoodsType_Click; //商品种类管理
-            rb.btnBrandType.Click += btnBrandType_Click; //品牌管理
-            rb.btnUnitType.Click += btnUnitType_Click;   //单位类型管理
+            //菜单二
+            rb.btnPrintSetting.Click += btnPrintSetting_Click;
+            rb.btnSysSetting.Click += btnSysSetting_Click; ;
+            rb.btnSupplier.Click += btnSupplier_Click;
+
+            rb.btnUserAdd.Click += btnUserAdd_Click;
+            rb.btnUserList.Click += btnUserList_Click;
+
+            rb.btnGoodsType.Click += btnGoodsType_Click;      //商品种类管理
+            rb.btnBrandType.Click += btnBrandType_Click;      //品牌管理
+            rb.btnUnitType.Click += btnUnitType_Click;        //单位类型管理
             #endregion
+        }
+
+        void btnUserList_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void btnUserAdd_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void btnSysSetting_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void btnSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void btnPrintSetting_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void btnRestart_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void btnChangePwd_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        void btnIns_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void btnMember_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        void btnSale_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         /// <summary>

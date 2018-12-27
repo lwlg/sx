@@ -58,7 +58,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(653, 94);
+            this.panel1.Size = new System.Drawing.Size(828, 94);
             this.panel1.TabIndex = 3;
             // 
             // elementHost1
@@ -68,7 +68,7 @@
             this.elementHost1.Margin = new System.Windows.Forms.Padding(0);
             this.elementHost1.Name = "elementHost1";
             this.elementHost1.Padding = new System.Windows.Forms.Padding(1);
-            this.elementHost1.Size = new System.Drawing.Size(653, 94);
+            this.elementHost1.Size = new System.Drawing.Size(828, 94);
             this.elementHost1.TabIndex = 0;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.ribbon1;
@@ -81,7 +81,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(653, 473);
+            this.panel2.Size = new System.Drawing.Size(828, 473);
             this.panel2.TabIndex = 4;
             // 
             // dockPanel1
@@ -91,7 +91,7 @@
             this.dockPanel1.Location = new System.Drawing.Point(0, 94);
             this.dockPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Size = new System.Drawing.Size(653, 379);
+            this.dockPanel1.Size = new System.Drawing.Size(828, 379);
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -146,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 473);
+            this.ClientSize = new System.Drawing.Size(828, 473);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
