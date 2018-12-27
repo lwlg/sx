@@ -56,8 +56,9 @@
             this.panel1.Controls.Add(this.elementHost1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(871, 117);
+            this.panel1.Size = new System.Drawing.Size(653, 94);
             this.panel1.TabIndex = 3;
             // 
             // elementHost1
@@ -67,7 +68,7 @@
             this.elementHost1.Margin = new System.Windows.Forms.Padding(0);
             this.elementHost1.Name = "elementHost1";
             this.elementHost1.Padding = new System.Windows.Forms.Padding(1);
-            this.elementHost1.Size = new System.Drawing.Size(871, 117);
+            this.elementHost1.Size = new System.Drawing.Size(653, 94);
             this.elementHost1.TabIndex = 0;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.ribbon1;
@@ -75,21 +76,22 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.BackgroundImage = global::sxpos.Properties.Resources.bg1;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(871, 591);
+            this.panel2.Size = new System.Drawing.Size(653, 473);
             this.panel2.TabIndex = 4;
             // 
             // dockPanel1
             // 
             this.dockPanel1.CausesValidation = false;
             this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dockPanel1.Location = new System.Drawing.Point(0, 117);
+            this.dockPanel1.Location = new System.Drawing.Point(0, 94);
+            this.dockPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Size = new System.Drawing.Size(871, 474);
+            this.dockPanel1.Size = new System.Drawing.Size(653, 379);
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -141,15 +143,15 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 591);
+            this.ClientSize = new System.Drawing.Size(653, 473);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
