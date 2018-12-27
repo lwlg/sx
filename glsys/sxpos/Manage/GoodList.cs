@@ -25,8 +25,8 @@ namespace sxpos.Manage
             switch (e.KeyCode)
             {
                 case Keys.F2://商品入库
-                    GoodIn frm = new GoodIn();
-                    frm.ShowDialog();
+                    //GoodIn frm = new GoodIn();
+                    //frm.ShowDialog();
                     break;
                 default:
                     e.Handled = false;
