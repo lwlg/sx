@@ -29,8 +29,32 @@ namespace sxpos
             rb.btnGoods.Click += btnGoods_Click;
             rb.btnExit.Click += btnExit_Click;
 
-            rb.btnGoodsType.Click += btnGoodsType_Click;
+            rb.btnGoodsType.Click += btnGoodsType_Click; //商品种类管理
+            rb.btnBrandType.Click += btnBrandType_Click; //品牌管理
+            rb.btnUnitType.Click += btnUnitType_Click;   //单位类型管理
             #endregion
+        }
+
+        /// <summary>
+        /// 单位类型管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnUnitType_Click(object sender, RoutedEventArgs e)
+        {
+            Settings.DicList frm = new Settings.DicList("商品单位");
+            showSubForm(frm, "商品单位管理");
+
+        }
+        /// <summary>
+        /// 品牌管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnBrandType_Click(object sender, RoutedEventArgs e)
+        {
+            Settings.DicList frm = new Settings.DicList("商品品牌");
+            showSubForm(frm, "商品品牌管理");
         }
 
         /// <summary>
@@ -44,6 +68,11 @@ namespace sxpos
             showSubForm(frm, "商品类别管理");
         }
 
+        /// <summary>
+        /// 退出系统
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Main_FormClosing(sender, new FormClosingEventArgs(CloseReason.None, false));
@@ -111,6 +140,11 @@ namespace sxpos
             {
                 e.Cancel = true;
             }
+        }
+
+        private void dockPanel1_Click(object sender, EventArgs e)
+        {
+
         }
 
         
