@@ -63,6 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="postGoods.cs" />
+    <Compile Include="pos_Supplier.cs" />
+    <Compile Include="pos_SupplierEx.cs" />
+    <Compile Include="pos_SupplierGoods.cs" />
+    <Compile Include="pos_SysSetting.cs" />
     <Compile Include="sys_Dictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sys_User.cs" />
