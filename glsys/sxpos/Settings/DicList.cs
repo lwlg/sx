@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using NDolls.Data.Attribute;
+
 namespace sxpos.Settings
 {
     public partial class DicList : BaseForm

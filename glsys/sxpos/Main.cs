@@ -63,9 +63,16 @@ namespace sxpos
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// 供应商管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void btnSupplier_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            BaseForm frm = new Manage.SupplierList();
+            showSubForm(frm, "供应商管理");
+
         }
 
         void btnPrintSetting_Click(object sender, RoutedEventArgs e)
