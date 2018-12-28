@@ -12,19 +12,48 @@ namespace sx.Service
     {
        public static IRepository<T> r = RepositoryFactory<T>.CreateRepository(typeof(T).ToString());
 
+       private static NDolls.Core.Log loger = new NDolls.Core.Log("../log", LogMod.Day);
+
        public bool Add(T model)
        {
-           return r.Add(model);
+           try
+           {
+               return r.Add(model);
+
+           }
+           catch (Exception)
+           {
+               loger.WriteLog("数据库插入表" + typeof(T).ToString() + "异常~");
+               return false;
+           }
+           
        }
 
        public bool Update(T model)
        {
-           return r.Update(model);
+           try
+           {
+                return r.Update(model);
+           }
+           catch (Exception)
+           {
+               loger.WriteLog("数据库更新表" + typeof(T).ToString() + "异常~");
+               return false;
+           }
        }
 
        public bool Delete(String pk)
        {
-           return r.Delete(pk);
+           try
+           {
+            return r.Delete(pk);
+
+           }
+           catch (Exception)
+           {
+               loger.WriteLog("数据库删除表" + typeof(T).ToString() + "异常~");
+               return false;   
+           }
        }
 
        public List<T> Find(List<Item> list)
