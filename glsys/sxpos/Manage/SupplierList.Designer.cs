@@ -61,7 +61,7 @@
             this.btnImport});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(835, 28);
+            this.toolStrip1.Size = new System.Drawing.Size(787, 28);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -141,7 +141,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(835, 362);
+            this.panel1.Size = new System.Drawing.Size(787, 401);
             this.panel1.TabIndex = 1;
             // 
             // dataGridView1
@@ -153,14 +153,14 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(835, 362);
+            this.dataGridView1.Size = new System.Drawing.Size(787, 401);
             this.dataGridView1.TabIndex = 0;
             // 
             // SupplierList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 390);
+            this.ClientSize = new System.Drawing.Size(787, 429);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));

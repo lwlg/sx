@@ -25,7 +25,7 @@ namespace sxpos.Manage
 
         private void SupplierList_Load(object sender, EventArgs e)
         {
-             DataTable dt = s.GetAll();
+            DataTable dt = s.GetAll();
 
             List<CustomAttribute> cols = sx.Service.SupplierService.r.GetCustomFieldsByType("GridCol");
             Funs.GridUtil.InitDataGrid(dataGridView1, cols);

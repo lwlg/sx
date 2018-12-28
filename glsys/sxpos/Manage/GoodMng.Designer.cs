@@ -107,12 +107,13 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(271, 28);
+            this.checkBox1.Location = new System.Drawing.Point(258, 28);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(156, 16);
             this.checkBox1.TabIndex = 3;
             this.checkBox1.Text = "无条码商品系统自动生成";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -198,6 +199,7 @@
             this.btnSelect.TabIndex = 3;
             this.btnSelect.Text = "选择";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // varBrand
             // 
@@ -409,9 +411,10 @@
             this.ClientSize = new System.Drawing.Size(485, 374);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GoodMng";
             this.Text = "添加商品信息";
+            this.Load += new System.EventHandler(this.GoodMng_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

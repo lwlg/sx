@@ -46,12 +46,13 @@ namespace sxpos.Manage
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            GoodMng frm = new GoodMng();
+            GoodMng frm = new GoodMng("");
             frm.ShowDialog();
+
         }
 
 
 
-        
+
     }
 }

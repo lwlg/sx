@@ -1,5 +1,5 @@
 ﻿/*
- 添加商品信息
+  添加一种商品信息
  */
 
 using System;
@@ -15,8 +15,14 @@ namespace sxpos.Manage
 {
     public partial class GoodMng : BaseForm
     {
-        public GoodMng()
+        private String id = "";
+        private String code = "";
+
+        private sx.Service.DicService d = new sx.Service.DicService();
+
+        public GoodMng(String barcode)
         {
+            this.code = barcode;
             InitializeComponent();
         }
 
@@ -28,6 +34,56 @@ namespace sxpos.Manage
         private void btnSave_Click(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// 供应商选择
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            //             SupplierList frm = new SupplierList();
+            //             frm.ShowDialog();
+
+        }
+
+        private void GoodMng_Load(object sender, EventArgs e)
+        {
+            NDolls.Forms.WinUtil.InitComboBox<sx.Model.sys_Dictionary>(varCategory,
+                "DName", "DName", d.GetDicsByType("商品类别"));
+
+
+            NDolls.Forms.WinUtil.InitComboBox<sx.Model.sys_Dictionary>(varUnit,
+                "DName", "DName", d.GetDicsByType("商品单位"));
+
+
+            NDolls.Forms.WinUtil.InitComboBox<sx.Model.sys_Dictionary>(varBrand,
+                            "DName", "DName", d.GetDicsByType("商品品牌"));
+
+            varBarCode.Text = code;
+            //changeMode
+
+            // 
+
+            //
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                varBarCode.Text = Guid.NewGuid().ToString("N");
+                varBarCode.Visible = true;
+            }
+            else
+            {
+                varBarCode.Text = "";
+                varBarCode.Visible = true;
+                varBarCode.Focus();
+
+            }
         }
     }
 }
