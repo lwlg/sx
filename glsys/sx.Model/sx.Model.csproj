@@ -62,7 +62,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="postGoods.cs" />
+    <Compile Include="posGoodsIn.cs" />
+    <Compile Include="posGoods.cs" />
+    <Compile Include="pos_StockLog.cs" />
     <Compile Include="pos_Supplier.cs" />
     <Compile Include="pos_SupplierEx.cs" />
     <Compile Include="pos_SupplierGoods.cs" />

@@ -53,11 +53,14 @@ namespace sxpos.Manage
 
         private void SelectSupplier_Load(object sender, EventArgs e)
         {
-            DataTable dt = ss.GetAll();
             List<CustomAttribute> cols = sx.Service.SupplierService.r.GetCustomFieldsByType("GridCol");
             Funs.GridUtil.InitDataGrid(dataGridView1, cols);
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.DataSource = dt;
+
+            btnSearch_Click(sender, e);
+
+            //DataTable dt = ss.GetAll();
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dataGridView1.DataSource = dt;
 
         }
 

@@ -8,8 +8,8 @@ using NDolls.Data.Attribute;
 
 namespace sx.Model
 {
-    [Entity("post_Goods","ID")]
-    public class postGoods:EntityBase
+    [Entity("pos_Goods", "ID")]
+    public class posGoods : EntityBase
     {
         /// <summary>
         /// 系统编号
