@@ -33,18 +33,24 @@ namespace sxpos.Manage
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            List<NDolls.Data.Entity.EntityBase> lst = new List<NDolls.Data.Entity.EntityBase>();
+
 
         }
 
         /// <summary>
-        /// 供应商选择
+        /// 供应商选择界面
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            //             SupplierList frm = new SupplierList();
-            //             frm.ShowDialog();
+            SelectSupplier frm = new SelectSupplier();
+            if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                varSupplier.Text = frm.SName;
+                varSupplier.Tag = frm.SID;
+            }
 
         }
 

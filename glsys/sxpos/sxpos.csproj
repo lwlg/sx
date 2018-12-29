@@ -129,6 +129,12 @@
     <Compile Include="Manage\GoodMng.Designer.cs">
       <DependentUpon>GoodMng.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage\SelectSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage\SelectSupplier.Designer.cs">
+      <DependentUpon>SelectSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage\SupplierList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manage\GoodMng.resx">
       <DependentUpon>GoodMng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\SelectSupplier.resx">
+      <DependentUpon>SelectSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage\SupplierList.resx">
       <DependentUpon>SupplierList.cs</DependentUpon>
