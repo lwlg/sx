@@ -26,10 +26,7 @@ namespace sxpos
 
         }
 
-        private void BaseForm_KeyDown(object sender, KeyEventArgs e)
-        {
 
-        }
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
@@ -51,18 +48,18 @@ namespace sxpos
 
         private void setPermission(Control ctrl, String cls)
         {
- 
+
         }
 
         private void checkToolStrip(Control ctrl, String cls)
-        { 
-        
+        {
+
         }
 
         protected static void ClearEvents(object ctl, string eventname = "All")
-        { 
-        
-             if (ctl == null) return;
+        {
+
+            if (ctl == null) return;
             if (string.IsNullOrEmpty(eventname)) return;
 
             BindingFlags bindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreCase | BindingFlags.Static;
@@ -87,6 +84,11 @@ namespace sxpos
                 }
                 catch { }
             }
+        }
+
+        private void BaseForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            OnKeyDown(e);
         }
 
 

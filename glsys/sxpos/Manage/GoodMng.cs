@@ -87,7 +87,7 @@ namespace sxpos.Manage
             sm.Variation = int.Parse(varTotal.Text) - sm.PreStock;
             sm.AfterStock = int.Parse(varTotal.Text);
             sm.CreateTime = sm.UpdateTime = DateTime.Now;
-            //sm.Modifier = Funs.Constant.UserAccount;
+            sm.Modifier = "lwlg";//Funs.Constant.UserAccount;
             sm.StockMark = "商品管理入库";
             list.Add(sm);//库存变动记录
 

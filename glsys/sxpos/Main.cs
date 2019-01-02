@@ -217,7 +217,8 @@ namespace sxpos
 
         }
 
-        protected override void OnKeyDown(KeyEventArgs e)
+
+        private void Main_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {

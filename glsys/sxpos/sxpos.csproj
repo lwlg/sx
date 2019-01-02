@@ -97,8 +97,10 @@
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Funs\Constant.cs" />
+    <Compile Include="Funs\ControlUtil.cs" />
     <Compile Include="Funs\GridUtil.cs" />
     <Compile Include="Funs\SpellingUtil.cs" />
+    <Compile Include="Funs\ValidateUtil.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

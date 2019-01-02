@@ -53,15 +53,23 @@ namespace sxpos.Funs
 
         public static void UpdateRow(BindingSource bindSource, object o)
         {
-            Type t = o.GetType();
-            PropertyInfo[] propertys = t.GetProperties();
-            object p = bindSource.Current;
-            foreach (PropertyInfo item in propertys)
+            try
             {
-                object value = item.GetValue(0, null);
-                item.SetValue(item, value, null);
+                Type t = o.GetType();
+                PropertyInfo[] propertys = t.GetProperties();
+                object p = bindSource.Current;
+                foreach (PropertyInfo item in propertys)
+                {
+                    object value = item.GetValue(0, null);
+                    item.SetValue(item, value, null);
+                }
+                bindSource.ResetCurrentItem();
             }
-            bindSource.ResetCurrentItem();
+            catch
+            {
+
+            }
+
         }
 
         public static void DataToExcel(DataGridView grid)
