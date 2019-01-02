@@ -41,7 +41,7 @@ namespace sx.Model
         public string GoodsName { get; set; }
 
         /// <summary>
-        /// 商品名称
+        /// 商品品牌
         /// </summary>		
         [DataField("Brand", "nvarchar")]
         [Custom("GridCol", "Brand", "商品品牌", "sortble")]
