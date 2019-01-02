@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoodList));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAdd = new System.Windows.Forms.ToolStripButton();
@@ -68,6 +69,7 @@
             this.varStock = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.varSummary = new System.Windows.Forms.ToolStripStatusLabel();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -75,6 +77,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -156,17 +159,17 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(850, 40);
             this.panel1.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(664, 12);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Location = new System.Drawing.Point(664, 7);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(56, 18);
+            this.btnSearch.Size = new System.Drawing.Size(91, 20);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "查询";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -174,8 +177,8 @@
             // varBrand
             // 
             this.varBrand.FormattingEnabled = true;
-            this.varBrand.Location = new System.Drawing.Point(400, 13);
-            this.varBrand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.varBrand.Location = new System.Drawing.Point(400, 6);
+            this.varBrand.Margin = new System.Windows.Forms.Padding(2);
             this.varBrand.Name = "varBrand";
             this.varBrand.Size = new System.Drawing.Size(92, 20);
             this.varBrand.TabIndex = 2;
@@ -183,32 +186,32 @@
             // varCategory
             // 
             this.varCategory.FormattingEnabled = true;
-            this.varCategory.Location = new System.Drawing.Point(258, 10);
-            this.varCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.varCategory.Location = new System.Drawing.Point(258, 6);
+            this.varCategory.Margin = new System.Windows.Forms.Padding(2);
             this.varCategory.Name = "varCategory";
             this.varCategory.Size = new System.Drawing.Size(92, 20);
             this.varCategory.TabIndex = 2;
             // 
             // varTotalEx
             // 
-            this.varTotalEx.Location = new System.Drawing.Point(603, 13);
-            this.varTotalEx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.varTotalEx.Location = new System.Drawing.Point(603, 6);
+            this.varTotalEx.Margin = new System.Windows.Forms.Padding(2);
             this.varTotalEx.Name = "varTotalEx";
             this.varTotalEx.Size = new System.Drawing.Size(41, 21);
             this.varTotalEx.TabIndex = 1;
             // 
             // varTotal
             // 
-            this.varTotal.Location = new System.Drawing.Point(536, 13);
-            this.varTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.varTotal.Location = new System.Drawing.Point(536, 6);
+            this.varTotal.Margin = new System.Windows.Forms.Padding(2);
             this.varTotal.Name = "varTotal";
             this.varTotal.Size = new System.Drawing.Size(41, 21);
             this.varTotal.TabIndex = 1;
             // 
             // varKeywords
             // 
-            this.varKeywords.Location = new System.Drawing.Point(110, 8);
-            this.varKeywords.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.varKeywords.Location = new System.Drawing.Point(110, 6);
+            this.varKeywords.Margin = new System.Windows.Forms.Padding(2);
             this.varKeywords.Name = "varKeywords";
             this.varKeywords.Size = new System.Drawing.Size(95, 21);
             this.varKeywords.TabIndex = 1;
@@ -216,7 +219,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(587, 19);
+            this.label5.Location = new System.Drawing.Point(587, 10);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(11, 12);
@@ -226,7 +229,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(504, 16);
+            this.label4.Location = new System.Drawing.Point(504, 10);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
@@ -236,7 +239,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(368, 13);
+            this.label3.Location = new System.Drawing.Point(368, 10);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
@@ -278,7 +281,7 @@
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Location = new System.Drawing.Point(432, 303);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(410, 42);
             this.panel2.TabIndex = 2;
@@ -286,7 +289,7 @@
             // varCurrent
             // 
             this.varCurrent.Location = new System.Drawing.Point(234, 14);
-            this.varCurrent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.varCurrent.Margin = new System.Windows.Forms.Padding(2);
             this.varCurrent.Name = "varCurrent";
             this.varCurrent.Size = new System.Drawing.Size(29, 21);
             this.varCurrent.TabIndex = 7;
@@ -356,7 +359,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(323, 14);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(45, 18);
             this.button4.TabIndex = 4;
@@ -366,7 +369,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(165, 14);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(45, 18);
             this.button3.TabIndex = 4;
@@ -376,7 +379,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(128, 14);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(34, 18);
             this.button2.TabIndex = 4;
@@ -386,7 +389,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(371, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(34, 18);
             this.button1.TabIndex = 4;
@@ -401,7 +404,7 @@
             this.panel11.Controls.Add(this.statusStrip1);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 27);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(850, 345);
             this.panel11.TabIndex = 3;
@@ -411,7 +414,7 @@
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(850, 298);
             this.panel3.TabIndex = 2;
@@ -423,7 +426,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(850, 298);
@@ -480,7 +483,7 @@
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GoodList";
             this.Text = "GoodList";
             this.Load += new System.EventHandler(this.GoodList_Load);
@@ -495,6 +498,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,6 +545,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.BindingSource bindingSource1;
 
     }
 }

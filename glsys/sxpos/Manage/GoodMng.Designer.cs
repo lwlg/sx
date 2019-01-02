@@ -134,6 +134,7 @@
             this.varAlarm.Name = "varAlarm";
             this.varAlarm.Size = new System.Drawing.Size(100, 21);
             this.varAlarm.TabIndex = 1;
+            this.varAlarm.Text = "10";
             // 
             // label13
             // 
@@ -150,6 +151,7 @@
             this.varTotal.Name = "varTotal";
             this.varTotal.Size = new System.Drawing.Size(100, 21);
             this.varTotal.TabIndex = 1;
+            this.varTotal.Text = "60";
             // 
             // label12
             // 
@@ -304,6 +306,7 @@
             this.varShortCode.Name = "varShortCode";
             this.varShortCode.Size = new System.Drawing.Size(100, 21);
             this.varShortCode.TabIndex = 1;
+            this.varShortCode.Text = "aa";
             // 
             // label4
             // 
@@ -336,6 +339,7 @@
             this.varBuyingPrice.Name = "varBuyingPrice";
             this.varBuyingPrice.Size = new System.Drawing.Size(100, 21);
             this.varBuyingPrice.TabIndex = 1;
+            this.varBuyingPrice.Text = "30";
             // 
             // label10
             // 
@@ -352,6 +356,7 @@
             this.varRetailPrice1.Name = "varRetailPrice1";
             this.varRetailPrice1.Size = new System.Drawing.Size(100, 21);
             this.varRetailPrice1.TabIndex = 1;
+            this.varRetailPrice1.Text = "100";
             // 
             // label9
             // 
@@ -368,6 +373,7 @@
             this.varGoodsName.Name = "varGoodsName";
             this.varGoodsName.Size = new System.Drawing.Size(100, 21);
             this.varGoodsName.TabIndex = 1;
+            this.varGoodsName.Text = "啊啊";
             // 
             // label3
             // 

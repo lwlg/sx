@@ -20,7 +20,7 @@ namespace sxpos
         {
             InitializeComponent();
             //启动数据库备份任务
-            
+
             #region 事件注册
             sx.Controls.Ribbon rb = elementHost1.Child as sx.Controls.Ribbon;
             //菜单一
@@ -87,7 +87,7 @@ namespace sxpos
 
         void btnChangePwd_Click(object sender, RoutedEventArgs e)
         {
-           
+
         }
 
         void btnIns_Click(object sender, RoutedEventArgs e)
@@ -97,12 +97,12 @@ namespace sxpos
 
         void btnMember_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         void btnSale_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         /// <summary>
@@ -217,7 +217,27 @@ namespace sxpos
 
         }
 
-        
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F1:
+                    btnCash_Click(this, null);
+                    break;
+                case Keys.F2:
+                    btnGoods_Click(this, null);
+                    break;
+                case Keys.F3:
+                    btnMember_Click(this, null);
+                    break;
+                case Keys.F4:
+                    btnIns_Click(this, null);
+                    break;
+                case Keys.F5:
+                    //btnSales_Click(this, null);
+                    break;
+            }
+        }
 
     }
 }

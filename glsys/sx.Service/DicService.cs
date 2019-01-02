@@ -19,21 +19,22 @@ namespace sx.Service
         /// <param name="type"></param>
         /// <returns></returns>
         public List<Model.sys_Dictionary> GetDicsByType(String type)
-        { 
-            ConditionItem conditionItem = new  ConditionItem("DType",type,SearchType.Accurate);
-            OrderItem orderItem = new  OrderItem("DName",OrderType.ASC);
-            List<Item> list = new  List<Item>(){conditionItem, orderItem};
+        {
+            ConditionItem conditionItem = new ConditionItem("DType", type, SearchType.Accurate);
+            OrderItem orderItem = new OrderItem("DName", OrderType.ASC);
+            List<Item> list = new List<Item>() { conditionItem, orderItem };
             return r.FindByCondition(list);
         }
 
 
-        public bool Exist(String type,String name)
+        public bool Exist(String type, String name)
         {
             List<Item> list = new List<Item>();
             ConditionItem item1 = new ConditionItem("DType", type, SearchType.Accurate);
-            ConditionItem item2 = new ConditionItem("DType", name, SearchType.Accurate);
+            ConditionItem item2 = new ConditionItem("DName", name, SearchType.Accurate);
             list.Add(item1);
             list.Add(item2);
+
             return r.Exist(list);
         }
 
