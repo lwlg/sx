@@ -26,17 +26,6 @@ namespace sxpos
 
         }
 
-
-
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                e.Handled = true;
-                this.Close();
-            }
-        }
-
         protected override bool ProcessDialogKey(Keys keyData)
         {
             if (!this.GetType().FullName.Contains("sxpos.sale") && keyData == Keys.Enter)
@@ -88,7 +77,12 @@ namespace sxpos
 
         private void BaseForm_KeyDown(object sender, KeyEventArgs e)
         {
-            OnKeyDown(e);
+            Console.WriteLine("baseForm key down..");
+            if (e.KeyCode == Keys.Escape)
+            {
+                e.Handled = true;
+                this.Close();
+            }
         }
 
 

@@ -220,25 +220,31 @@ namespace sxpos
 
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.F1:
-                    btnCash_Click(this, null);
-                    break;
-                case Keys.F2:
-                    btnGoods_Click(this, null);
-                    break;
-                case Keys.F3:
-                    btnMember_Click(this, null);
-                    break;
-                case Keys.F4:
-                    btnIns_Click(this, null);
-                    break;
-                case Keys.F5:
-                    //btnSales_Click(this, null);
-                    break;
-            }
+            Console.WriteLine("Main_KeyDown");
+            //switch (e.KeyCode)
+            //{
+            //    case Keys.F1:
+            //        btnCash_Click(this, null);
+            //        break;
+            //    case Keys.F2:
+            //        btnGoods_Click(this, null);
+            //        break;
+            //    case Keys.F3:
+            //        btnMember_Click(this, null);
+            //        break;
+            //    case Keys.F4:
+            //        btnIns_Click(this, null);
+            //        break;
+            //    case Keys.F5:
+            //        //btnSales_Click(this, null);
+            //        break;
+            // }
         }
 
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            Console.WriteLine("Main onkeydown");
+            base.OnKeyDown(e);
+        }
     }
 }
