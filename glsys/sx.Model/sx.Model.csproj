@@ -62,8 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="pos_OrderDetail.cs" />
+    <Compile Include="pos_MemberCostume.cs" />
     <Compile Include="posGoodsIn.cs" />
     <Compile Include="posGoods.cs" />
+    <Compile Include="pos_Member.cs" />
+    <Compile Include="pos_Order.cs" />
     <Compile Include="pos_StockLog.cs" />
     <Compile Include="pos_Supplier.cs" />
     <Compile Include="pos_SupplierEx.cs" />

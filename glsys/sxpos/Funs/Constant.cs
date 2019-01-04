@@ -66,7 +66,8 @@ namespace sxpos.Funs
         //               return 
         //           }
         //       }
-
+        public static List<sx.Model.pos_OrderDetail> list_puase = new List<sx.Model.pos_OrderDetail>();
+        public static List<sx.Model.pos_Order> pause_order_list = new List<sx.Model.pos_Order>();
         #endregion
     }
 }
