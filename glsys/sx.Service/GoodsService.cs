@@ -15,7 +15,7 @@ namespace sx.Service
         public static IRepository<Model.posGoodsIn> ir = RepositoryFactory<Model.posGoodsIn>.CreateRepository("NShop.Model.sdpost_GoodsIn");
 
 
-        public List<sx.Model.posGoods> GetGoods(String key)
+        public List<sx.Model.posGoods> GetGoods(string key)
         {
             key = NDolls.Core.Util.ValidateUtil.FilterIllegal(key);
             return r.Find("BarCode like '%" + key + "%' or StockNo like '%" + key + "%' or ShortCode like '%" + key + "%'");
@@ -28,32 +28,32 @@ namespace sx.Service
 
         }
 
-        public List<sx.Model.posGoods> SearchGoods(String key)
+        public List<sx.Model.posGoods> SearchGoods(string key)
         {
             key = NDolls.Core.Util.ValidateUtil.FilterIllegal(key);
             return r.Find("BarCode='" + key + "' OR StockNo LIKE '%" + key + "%' OR ShortCode LIKE '%" + key + "%'" + " OR GoodsName LIKE '%" + key + "%'");
         }
 
 
-        public DataTable CustomSearch(String fields, List<Item> conditions)
+        public DataTable CustomSearch(string fields, List<Item> conditions)
         {
 
             return r.FindByCustom(fields, conditions);
         }
 
-        public sx.Model.posGoods GetGoodsByID(String id)
+        public sx.Model.posGoods GetGoodsByID(string id)
         {
             return r.FindByPK(id);
         }
 
-        public List<sx.Model.posGoods> GetGoodsByBarCode(String code)
+        public List<sx.Model.posGoods> GetGoodsByBarCode(string code)
         {
             ConditionItem item = new ConditionItem("BarCode", code, SearchType.Accurate);
             List<Model.posGoods> list = r.FindByCondition(item);
             return list;
         }
 
-        public bool DelGoods(String id)
+        public bool DelGoods(string id)
         {
             return r.Delete(id);
         }
