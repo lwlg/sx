@@ -5,10 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using System.Windows;
+using System.Windows.Forms;
 using CustomUIControls;
-/*using SHDocVw;*/
 using System.Reflection;
 using System.Diagnostics;
 namespace sxpos
@@ -243,8 +242,17 @@ namespace sxpos
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
-            Console.WriteLine("Main onkeydown");
-            base.OnKeyDown(e);
+            //Console.WriteLine("Main onkeydown");
+            //base.OnKeyDown(e);
+        }
+
+        private void Main_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                System.Windows.Forms.MessageBox.Show("F2");
+
+            }
         }
     }
 }

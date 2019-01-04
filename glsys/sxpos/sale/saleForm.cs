@@ -194,6 +194,7 @@ namespace sxpos.sale
                     else if (sss > 1)
                     {
                         grid_index_num++;
+                        //todo:: 商品选择界面
 
 
                     }
@@ -204,6 +205,14 @@ namespace sxpos.sale
         private void btnBill_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void saleForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                MessageBox.Show("F2");
+            }
         }
 
 

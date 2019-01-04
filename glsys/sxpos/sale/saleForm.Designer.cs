@@ -60,6 +60,29 @@
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.btnBill = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.GoodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Promotion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GoodsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MemberPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GoodsNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiscountRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OriginalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Profit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Memo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modifier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -236,6 +259,30 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GoodsID,
+            this.Promotion,
+            this.GoodsName,
+            this.UnitPrice,
+            this.MemberPrice,
+            this.Unit,
+            this.GoodsNum,
+            this.ID,
+            this.OrderID,
+            this.SalePrice,
+            this.DiscountRate,
+            this.Category,
+            this.Discount,
+            this.CostPrice,
+            this.OriginalPrice,
+            this.Profit,
+            this.Supplier,
+            this.Status,
+            this.Stock,
+            this.Memo,
+            this.CreateTime,
+            this.UpdateTime,
+            this.Modifier});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -400,6 +447,181 @@
             this.btnBill.UseVisualStyleBackColor = true;
             this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
             // 
+            // GoodsID
+            // 
+            this.GoodsID.DataPropertyName = "GoodsID";
+            this.GoodsID.HeaderText = "编号/条码";
+            this.GoodsID.Name = "GoodsID";
+            this.GoodsID.ReadOnly = true;
+            // 
+            // Promotion
+            // 
+            this.Promotion.DataPropertyName = "Promotion";
+            this.Promotion.HeaderText = "会员价说明";
+            this.Promotion.Name = "Promotion";
+            this.Promotion.ReadOnly = true;
+            this.Promotion.Visible = false;
+            // 
+            // GoodsName
+            // 
+            this.GoodsName.DataPropertyName = "GoodsName";
+            this.GoodsName.HeaderText = "商品名称";
+            this.GoodsName.Name = "GoodsName";
+            this.GoodsName.ReadOnly = true;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.DataPropertyName = "UnitPrice";
+            this.UnitPrice.HeaderText = "单价";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
+            // 
+            // MemberPrice
+            // 
+            this.MemberPrice.DataPropertyName = "MemberPrice";
+            this.MemberPrice.HeaderText = "会员价";
+            this.MemberPrice.Name = "MemberPrice";
+            this.MemberPrice.ReadOnly = true;
+            // 
+            // Unit
+            // 
+            this.Unit.DataPropertyName = "Unit";
+            this.Unit.HeaderText = "单位";
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            // 
+            // GoodsNum
+            // 
+            this.GoodsNum.DataPropertyName = "GoodsNum";
+            this.GoodsNum.HeaderText = "数量";
+            this.GoodsNum.Name = "GoodsNum";
+            this.GoodsNum.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "系统编号";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // OrderID
+            // 
+            this.OrderID.DataPropertyName = "OrderID";
+            this.OrderID.HeaderText = "订单编号";
+            this.OrderID.Name = "OrderID";
+            this.OrderID.ReadOnly = true;
+            this.OrderID.Visible = false;
+            // 
+            // SalePrice
+            // 
+            this.SalePrice.DataPropertyName = "SalePrice";
+            this.SalePrice.HeaderText = "总价";
+            this.SalePrice.Name = "SalePrice";
+            this.SalePrice.ReadOnly = true;
+            this.SalePrice.Visible = false;
+            // 
+            // DiscountRate
+            // 
+            this.DiscountRate.DataPropertyName = "DiscountRate";
+            this.DiscountRate.HeaderText = "折扣率";
+            this.DiscountRate.Name = "DiscountRate";
+            this.DiscountRate.ReadOnly = true;
+            this.DiscountRate.Visible = false;
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "商品分类";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            // 
+            // Discount
+            // 
+            this.Discount.DataPropertyName = "Discount";
+            this.Discount.HeaderText = "总折扣金额";
+            this.Discount.Name = "Discount";
+            this.Discount.ReadOnly = true;
+            this.Discount.Visible = false;
+            // 
+            // CostPrice
+            // 
+            this.CostPrice.DataPropertyName = "CostPrice";
+            this.CostPrice.HeaderText = "总进价";
+            this.CostPrice.Name = "CostPrice";
+            this.CostPrice.ReadOnly = true;
+            this.CostPrice.Visible = false;
+            // 
+            // OriginalPrice
+            // 
+            this.OriginalPrice.DataPropertyName = "OriginalPrice";
+            this.OriginalPrice.HeaderText = "总原始价";
+            this.OriginalPrice.Name = "OriginalPrice";
+            this.OriginalPrice.ReadOnly = true;
+            this.OriginalPrice.Visible = false;
+            // 
+            // Profit
+            // 
+            this.Profit.DataPropertyName = "Profit";
+            this.Profit.HeaderText = "总利润";
+            this.Profit.Name = "Profit";
+            this.Profit.ReadOnly = true;
+            this.Profit.Visible = false;
+            // 
+            // Supplier
+            // 
+            this.Supplier.DataPropertyName = "Supplier";
+            this.Supplier.HeaderText = "供应商";
+            this.Supplier.Name = "Supplier";
+            this.Supplier.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "数据状态";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Visible = false;
+            // 
+            // Stock
+            // 
+            this.Stock.DataPropertyName = "Stock";
+            this.Stock.HeaderText = "售前库存";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Visible = false;
+            // 
+            // Memo
+            // 
+            this.Memo.DataPropertyName = "Memo";
+            this.Memo.HeaderText = "备注";
+            this.Memo.Name = "Memo";
+            this.Memo.ReadOnly = true;
+            // 
+            // CreateTime
+            // 
+            this.CreateTime.DataPropertyName = "CreateTime";
+            this.CreateTime.HeaderText = "创建时间";
+            this.CreateTime.Name = "CreateTime";
+            this.CreateTime.ReadOnly = true;
+            this.CreateTime.Visible = false;
+            // 
+            // UpdateTime
+            // 
+            this.UpdateTime.DataPropertyName = "UpdateTime";
+            this.UpdateTime.HeaderText = "修改时间";
+            this.UpdateTime.Name = "UpdateTime";
+            this.UpdateTime.ReadOnly = true;
+            this.UpdateTime.Visible = false;
+            // 
+            // Modifier
+            // 
+            this.Modifier.DataPropertyName = "Modifier";
+            this.Modifier.HeaderText = "修改人";
+            this.Modifier.Name = "Modifier";
+            this.Modifier.ReadOnly = true;
+            this.Modifier.Visible = false;
+            // 
             // saleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -413,6 +635,7 @@
             this.Text = "saleForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.saleForm_FormClosing);
             this.Load += new System.EventHandler(this.saleForm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.saleForm_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -457,5 +680,28 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GoodsID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Promotion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GoodsName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MemberPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GoodsNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SalePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiscountRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OriginalPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Profit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Supplier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Memo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UpdateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modifier;
     }
 }

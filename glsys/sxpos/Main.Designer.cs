@@ -150,7 +150,6 @@
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
@@ -158,6 +157,7 @@
             this.Text = "Main";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Main_KeyUp);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
