@@ -62,7 +62,6 @@
             this.btnFirst = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -74,7 +73,6 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -92,7 +90,7 @@
             this.btnOutput});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(850, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1113, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -161,10 +159,10 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(850, 40);
+            this.panel1.Size = new System.Drawing.Size(1113, 40);
             this.panel1.TabIndex = 1;
             // 
             // btnSearch
@@ -285,7 +283,7 @@
             this.panel2.Controls.Add(this.btnPre);
             this.panel2.Controls.Add(this.btnFirst);
             this.panel2.Controls.Add(this.btnEnd);
-            this.panel2.Location = new System.Drawing.Point(400, 303);
+            this.panel2.Location = new System.Drawing.Point(663, 4);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(442, 42);
@@ -407,26 +405,14 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.panel1);
             this.panel11.Controls.Add(this.panel2);
-            this.panel11.Controls.Add(this.panel3);
             this.panel11.Controls.Add(this.statusStrip1);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(0, 27);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel11.Location = new System.Drawing.Point(0, 326);
             this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(850, 345);
+            this.panel11.Size = new System.Drawing.Size(1113, 46);
             this.panel11.TabIndex = 3;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(850, 298);
-            this.panel3.TabIndex = 2;
             // 
             // dataGridView1
             // 
@@ -434,16 +420,16 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeight = 38;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 67);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(850, 298);
+            this.dataGridView1.Size = new System.Drawing.Size(1113, 259);
             this.dataGridView1.TabIndex = 0;
             // 
             // statusStrip1
@@ -455,10 +441,10 @@
             this.varStock,
             this.toolStripStatusLabel3,
             this.varSummary});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 298);
+            this.statusStrip1.Location = new System.Drawing.Point(0, -1);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(850, 47);
+            this.statusStrip1.Size = new System.Drawing.Size(1113, 47);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -493,7 +479,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 372);
+            this.ClientSize = new System.Drawing.Size(1113, 372);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.toolStrip1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -508,7 +496,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel11.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -541,7 +528,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
