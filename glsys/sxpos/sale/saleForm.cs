@@ -15,23 +15,24 @@ namespace sxpos.sale
 {
     public partial class saleForm : Form
     {
+        //public static IRepository<sx.Model.Sys_User> r =
+        //    RepositoryFactory<sx.Model.Sys_User>.CreateRepository("Sys_User");
+
         private sx.Service.GoodsService gs = new sx.Service.GoodsService();
 
+        private sx.Service.OrderService os = new sx.Service.OrderService();
 
 
-        public static IRepository<sx.Model.Sys_User> r =
-            RepositoryFactory<sx.Model.Sys_User>.CreateRepository("Sys_User");
+        string sale_id = DateTime.Now.ToString("yyMMddHHmmssff");//销售流水号
+
 
         int goodnum = 0;
         int grid_index_num = 0;
-        decimal goodprice = (Decimal)0.0;
-        decimal price_member = (Decimal)0.0;
-        decimal price_zk = (Decimal)0.0;
+        decimal goodprice = (Decimal)0.0;     //正常价
+        decimal price_member = (Decimal)0.0;  //会员价
+        decimal price_zk = (Decimal)0.0;      //折扣价
 
-
-        string sale_id = DateTime.Now.ToString("yyMMddHHmmssff");
         int ismember = 0;                   //是否会员，0非会员，1普通会员
-
         List<sx.Model.pos_OrderDetail> list2 = new List<sx.Model.pos_OrderDetail>();
 
         public saleForm()
@@ -594,7 +595,7 @@ namespace sxpos.sale
 
         }
 
-        //订单数据存库
+        //保存订单数据存库
 
         public void saveData(decimal receivedMoney, decimal changeMoney, int iscash)
         {
@@ -607,13 +608,105 @@ namespace sxpos.sale
                 sx.Model.pos_OrderDetail saledetail = new sx.Model.pos_OrderDetail();
                 sx.Model.posGoods salegoods = new sx.Model.posGoods();
                 //
+                salegoods = gs.GetGoodsByBarCode_MustOne(dataGridView1.Rows[iii].Cells["GoodsID"].Value.ToString());
+                salegoods.Alarm = Convert.ToInt32(dataGridView1.Rows[iii].Cells["GoodsNum"].Value);
 
+                saledetail.ID = dataGridView1.Rows[iii].Cells["ID"].Value.ToString();                       //销售明细系统编号 
+                saledetail.OrderID = dataGridView1.Rows[iii].Cells["OrderID"].Value.ToString();                  //订单编号        
+                saledetail.GoodsID = dataGridView1.Rows[iii].Cells["GoodsID"].Value.ToString();                  //商品编号        
+                saledetail.GoodsName = dataGridView1.Rows[iii].Cells["GoodsName"].Value.ToString();              //商品名称        
+                saledetail.Unit = Convert.ToString(dataGridView1.Rows[iii].Cells["Unit"].Value);                         //商品单位        
+                saledetail.UnitPrice = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["UnitPrice"].Value);       //单价（元）      
+                saledetail.MemberPrice = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["MemberPrice"].Value);    //会员单价
+                saledetail.GoodsNum = Convert.ToInt32(dataGridView1.Rows[iii].Cells["GoodsNum"].Value);           //购买数量        
+                saledetail.OriginalPrice = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["OriginalPrice"].Value);       //单件进价
+                saledetail.Stock = salegoods.Total;                     //售后库存
+
+                if (ismember == 1)
+                    saledetail.SalePrice = saledetail.MemberPrice * saledetail.GoodsNum;         //总销售价格（元） 会员总价      
+                else
+                    saledetail.SalePrice = saledetail.UnitPrice * saledetail.GoodsNum;           //总销售价格（元） 正常总价
+                saledetail.SalePrice *= decimal.Parse(varDiscount.Text.Trim()) / (decimal)100;//每个单件商品计算整单折扣后的价格
+                saledetail.CostPrice = saledetail.OriginalPrice * saledetail.GoodsNum;            //总成本价格（元）
+                saledetail.DiscountRate = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["DiscountRate"].Value);             //会员价折扣率          
+                saledetail.Profit = saledetail.SalePrice - saledetail.CostPrice;               //改为实际利润  20150321
+                saledetail.Supplier = Convert.ToString(dataGridView1.Rows[iii].Cells["Supplier"].Value);                             //供应商          
+                saledetail.Status = Convert.ToInt32(dataGridView1.Rows[iii].Cells["Status"].Value);                              //数据状态        
+                saledetail.Memo = Convert.ToString(dataGridView1.Rows[iii].Cells["Memo"].Value);                                 //备注            
+                saledetail.CreateTime = Convert.ToDateTime(dataGridView1.Rows[iii].Cells["CreateTime"].Value);                          //创建时间        
+                saledetail.UpdateTime = Convert.ToDateTime(dataGridView1.Rows[iii].Cells["UpdateTime"].Value);                         //最近修改时间    
+                //saledetail.Modifier     = dataGridView1.Rows[iii].Cells["Modifier"].Value.ToString();             //最近修改人      
+                saledetail.Modifier = Funs.Constant.UserName;             //最近修改人      
+                saledetail.Category = Convert.ToString(dataGridView1.Rows[iii].Cells["Category"].Value);
+                saledetail.Promotion = Convert.ToString(dataGridView1.Rows[iii].Cells["Promotion"].Value);
+                saledetail.Discount = saledetail.UnitPrice * saledetail.GoodsNum - saledetail.SalePrice;               //总折扣
+
+                tot_costprice += saledetail.CostPrice;
+
+                list2.Add(saledetail);
+                listgoods.Add(salegoods);
             }
 
-            //if ()
-            //{
+            sx.Model.pos_Order order = new sx.Model.pos_Order();
+            order.ID = sale_id;
+            order.FlowNo = sale_id;
+            order.GoodsNum = goodnum;
+            order.OriginalPrice = goodprice;                            //原始价格
+            order.ReceivablePrice = Convert.ToDecimal(lblyingshou.Text.ToString());    //应收
+            order.Received = receivedMoney;          //实收
+            order.Change = changeMoney;            //找零
+            order.Discount = order.OriginalPrice - order.ReceivablePrice;    //优惠金额
+            order.Profit = order.ReceivablePrice - tot_costprice;           //利润
+            order.DiscountRate = Convert.ToDecimal(varDiscount.Text.Trim());
+            order.Memo = "";                                               //备注            
+            order.CreateTime = DateTime.Now;                          //创建时间        
+            order.UpdateTime = DateTime.Now;                          //最近修改时间    
+            order.Modifier = Funs.Constant.UserName;                                //最近修改人     
+            order.MemberNo = varMemInfo.Text.Trim();
+            order.Status = 1;                                 //状态1表示已经进行过积分处理，不管成功与否
+            if (ismember == 1)
+                order.Scores = Convert.ToInt32(Math.Floor(order.ReceivablePrice));
+            else
+                order.Scores = 0;
+            if (iscash == 1)    //银行卡
+                order.BandCard = 1;
+            else
+                order.Cash = 1;
 
-            //}
+            order.Details = list2;
+            if (os.AddTest(order))
+            {
+                try
+                {
+                    for (int iii = 0; iii < listgoods.Count; iii++)
+                    {
+                        string sql = "update posGoods set total = total -" + listgoods[iii].Alarm + " where id='" + listgoods[iii].ID + "' and barcode='" + listgoods[iii].BarCode + "'";
+                        int resp = NDolls.Data.RepositoryBase<sx.Model.posGoods>.Excute(sql);
+                    }
+                    if (ismember == 1)
+                    {
+                        List<sx.Model.pos_Member> members = new List<sx.Model.pos_Member>();
+                        sx.Service.MemberService mmm = new sx.Service.MemberService();
+                        members = mmm.GetMemberNoPhone(varMemInfo.Text.Trim());
+                        if (members.Count == 1)
+                        {
+                            members[0].Scores += Convert.ToInt32(Math.Floor(order.ReceivablePrice));
+                            mmm.UpdateMember(members[0]);
+                        }
+                        else if (members.Count < 1)
+                            MessageBox.Show("会员号不存在，无法积分");
+                        else
+                            MessageBox.Show("会员号重复，无法积分");
+                    }
+                }
+                catch
+                {
+                }
+                MessageBox.Show("结算完成");
+            }
+            else
+                MessageBox.Show("记录销售信息错误,结算失败");
+
         }
 
     }

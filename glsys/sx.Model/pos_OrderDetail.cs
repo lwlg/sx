@@ -8,6 +8,7 @@ using NDolls.Data.Entity;
 
 namespace sx.Model
 {
+    [Entity("sdpost_OrderDetail", "ID")]
     public class pos_OrderDetail : EntityBase
     {
 
