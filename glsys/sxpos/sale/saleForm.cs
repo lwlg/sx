@@ -15,7 +15,9 @@ namespace sxpos.sale
 {
     public partial class saleForm : Form
     {
-        private sx.Service.GoodsService us = new sx.Service.GoodsService();
+        private sx.Service.GoodsService gs = new sx.Service.GoodsService();
+
+
 
         public static IRepository<sx.Model.Sys_User> r =
             RepositoryFactory<sx.Model.Sys_User>.CreateRepository("Sys_User");
@@ -117,16 +119,23 @@ namespace sxpos.sale
             }
         }
 
+        //放弃此单
         private void btnDrop_Click(object sender, EventArgs e)
         {
             truncatedetail();
         }
 
-        /// <summary>
-        /// 初始化界面
-        /// </summary>
-        private void truncatedetail()
+        // 初始化界面
+        public void truncatedetail()
         {
+            goodnum = 0;                        //记录数量
+            goodprice = 0;                      //记录总价
+            price_member = 0;                   //记录会员总价
+            ismember = 0;                       //是否会员
+            grid_index_num = 0;                 //订单明细的序列数
+            dataGridView1.Rows.Clear();
+            sale_id = DateTime.Now.ToString("yyMMddHHmmssff");
+            varDiscount.Text = "100";
 
         }
 
@@ -142,7 +151,7 @@ namespace sxpos.sale
                 else
                 {
                     sx.Model.posGoods goodsdetail = new sx.Model.posGoods();
-                    List<sx.Model.posGoods> list = us.GetGoods(varBarCode.Text);
+                    List<sx.Model.posGoods> list = gs.GetGoods(varBarCode.Text);
                     int sss = list.Count;
                     if (sss == 1)
                     {
@@ -195,16 +204,40 @@ namespace sxpos.sale
                     {
                         grid_index_num++;
                         //todo:: 商品选择界面
-
-
+                        GoodSelectForm frm = new GoodSelectForm();
+                        frm.dataGridView1.DataSource = list;
+                        frm.ShowDialog(this);
                     }
+                    varBarCode.Text = "";
+                    varBarCode.Focus();
                 }
             }
         }
 
+        //结账
         private void btnBill_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.RowCount > 0)
+            {
+                payForm payfrm = new payForm();
+                payfrm.varreceivable.Text = this.lblyingshou.Text;
+                payfrm.varReceived.Text = this.lblyingshou.Text;
+                payfrm.ShowDialog(this);
+                if (payfrm.DialogResult == DialogResult.OK)
+                {
+                    //结算成功
 
+                }
+                else
+                {
+                    //结算不成功
+                }
+            }
+            else
+            {
+                varBarCode.Focus();
+                varBarCode.SelectAll();
+            }
         }
 
         private void saleForm_KeyUp(object sender, KeyEventArgs e)
@@ -215,6 +248,373 @@ namespace sxpos.sale
             }
         }
 
+        public void goodSelectEnter(sx.Model.pos_OrderDetail saledetail)
+        {
+            saledetail.ID = sale_id + grid_index_num.ToString("000");
+            saledetail.OrderID = sale_id;
+            Funs.GridUtil.AppendRow(this.bindingSource1, saledetail);
+            goodnum += saledetail.GoodsNum;
+            goodprice = goodprice + saledetail.SalePrice;
+            price_member += saledetail.MemberPrice * saledetail.GoodsNum;
+
+        }
+
+        // 回调传值
+        public void changeGoodsNum(int singlegoodnum, bool isgift)
+        {
+            int i = 0;
+            int GoodsNum = singlegoodnum;
+            decimal OriginalPrice = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["OriginalPrice"].Value);
+            decimal DiscountRate = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["DiscountRate"].Value);
+            decimal UnitPrice, MemberPrice;
+            if (isgift)
+            {
+                UnitPrice = 0;
+                MemberPrice = 0;
+                dataGridView1.CurrentRow.Cells["UnitPrice"].Value = (decimal)0;
+                dataGridView1.CurrentRow.Cells["MemberPrice"].Value = (decimal)0;
+                dataGridView1.CurrentRow.Cells["Memo"].Value = "赠品";
+            }
+            else
+            {
+                sx.Model.posGoods goods = gs.GetGoodsByBarCode_MustOne(
+                    dataGridView1.CurrentRow.Cells["GoodsID"].Value.ToString());
+                if (goods == null)
+                {
+                    UnitPrice = 0;
+                    MemberPrice = 0;
+                    dataGridView1.CurrentRow.Cells["UnitPrice"].Value = (decimal)0;
+                    dataGridView1.CurrentRow.Cells["MemberPrice"].Value = (decimal)0;
+                    dataGridView1.CurrentRow.Cells["Memo"].Value = "";
+                }
+                else
+                {
+                    if (goods.MemberPrice == 0)
+                    {
+                        goods.MemberPrice = goods.RetailPrice;
+                    }
+
+                    dataGridView1.CurrentRow.Cells["UnitPrice"].Value = goods.RetailPrice;
+                    dataGridView1.CurrentRow.Cells["MemberPrice"].Value = goods.MemberPrice;
+
+                    UnitPrice = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["UnitPrice"].Value);
+                    MemberPrice = Convert.ToDecimal(dataGridView1.CurrentRow.Cells["MemberPrice"].Value);
+                    dataGridView1.CurrentRow.Cells["Memo"].Value = "";
+                }
+            }
+            // 
+            dataGridView1.CurrentRow.Cells["GoodsNum"].Value = GoodsNum;
+
+            dataGridView1.CurrentRow.Cells["CostPrice"].Value = GoodsNum * OriginalPrice;
+
+            dataGridView1.CurrentRow.Cells["Discount"].Value = (decimal)GoodsNum * (UnitPrice - MemberPrice);
+
+            dataGridView1.CurrentRow.Cells["SalePrice"].Value = GoodsNum * UnitPrice;
+
+            dataGridView1.CurrentRow.Cells["Profit"].Value = GoodsNum * UnitPrice - GoodsNum * OriginalPrice;
+
+            goodprice = (decimal)0;
+            goodnum = 0;
+            price_member = 0;
+
+            for (i = 0; i < dataGridView1.RowCount; i++)
+            {
+                goodprice += (decimal)dataGridView1.Rows[i].Cells["SalePrice"].Value;
+                goodnum += (int)dataGridView1.Rows[i].Cells["GoodsNum"].Value;
+                price_member += (decimal)dataGridView1.Rows[i].Cells["MemberPrice"].Value * (int)(dataGridView1.Rows[i].Cells["GoodsNum"].Value);
+            }
+
+        }
+
+        // 按钮_修改单间数量
+        private void btnModifyCount_Click(object sender, EventArgs e)
+        {
+            goodsNumChange();
+        }
+
+        // 修改单件数量
+        private void goodsNumChange()
+        {
+            if (dataGridView1.RowCount > 0)
+            {
+                ChangeGoodsNum frm = new ChangeGoodsNum();
+                frm.lblGoodsName.Text = dataGridView1.CurrentRow.Cells["GoodsName"].Value.ToString();
+                frm.txtGoodsNum.Text = dataGridView1.CurrentRow.Cells["GoodsNum"].Value.ToString();
+                frm.ShowDialog(this);
+            }
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            goodsNumChange();
+        }
+
+        // 挂单
+        private void btnGuaDan_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.RowCount < 1)
+            {
+                return;
+            }
+
+            string namelist = "";
+            //遍历一条订单项暂存
+            for (int iii = 0; iii < dataGridView1.RowCount; iii++)
+            {
+                sx.Model.pos_OrderDetail sd = new sx.Model.pos_OrderDetail();
+                sd.ID = dataGridView1.Rows[iii].Cells["ID"].Value.ToString();
+                sd.OrderID = dataGridView1.Rows[iii].Cells["OrderID"].Value.ToString();
+                sd.GoodsID = dataGridView1.Rows[iii].Cells["GoodsID"].Value.ToString();
+                sd.GoodsName = dataGridView1.Rows[iii].Cells["GoodsName"].Value.ToString();
+
+                sd.UnitPrice = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["UnitPrice"].Value);       //单价（元）      
+                sd.GoodsNum = Convert.ToInt32(dataGridView1.Rows[iii].Cells["GoodsNum"].Value);           //购买数量        
+                sd.Unit = Convert.ToString(dataGridView1.Rows[iii].Cells["Unit"].Value);                         //商品单位        
+                sd.OriginalPrice = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["OriginalPrice"].Value);       //总原始价格（单件进价）
+                sd.DiscountRate = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["DiscountRate"].Value);             //折扣率          
+                sd.Discount = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["Discount"].Value);                     //总折扣金额（元）
+                sd.SalePrice = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["SalePrice"].Value);            //总销售价格（元）
+                sd.CostPrice = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["CostPrice"].Value);            //总成本价格（元）
+                sd.Profit = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["Profit"].Value);      //总利润          
+                sd.Supplier = Convert.ToString(dataGridView1.Rows[iii].Cells["Supplier"].Value);                             //供应商          
+                sd.Status = Convert.ToInt32(dataGridView1.Rows[iii].Cells["Status"].Value);                              //数据状态        
+                sd.Memo = Convert.ToString(dataGridView1.Rows[iii].Cells["Memo"].Value);                                 //备注            
+                sd.CreateTime = Convert.ToDateTime(dataGridView1.Rows[iii].Cells["CreateTime"].Value);                          //创建时间        
+                sd.UpdateTime = Convert.ToDateTime(dataGridView1.Rows[iii].Cells["UpdateTime"].Value);                         //最近修改时间    
+                sd.Modifier = Convert.ToString(dataGridView1.Rows[iii].Cells["Modifier"].Value);             //最近修改人      
+                sd.Category = Convert.ToString(dataGridView1.Rows[iii].Cells["Category"].Value);             //商品分类   
+                sd.MemberPrice = Convert.ToDecimal(dataGridView1.Rows[iii].Cells["MemberPrice"].Value);
+                sd.Promotion = Convert.ToString(dataGridView1.Rows[iii].Cells["Promotion"].Value);
+
+                namelist = namelist + sd.GoodsName + "|";
+                Funs.Constant.list_puase.Add(sd);
+            }
+
+            sx.Model.pos_Order p_orderlist = new sx.Model.pos_Order();
+            p_orderlist.FlowNo = sale_id;
+            p_orderlist.Memo = namelist;
+            p_orderlist.GoodsNum = this.goodnum;
+            p_orderlist.ReceivablePrice = this.goodprice;
+            p_orderlist.Status = this.grid_index_num;           //状态，临时存挂单的明细流水序列数
+            p_orderlist.CreateTime = DateTime.Now;
+            p_orderlist.Received = this.price_member;           //实收金额，这里临时存放挂单的会员总价
+            p_orderlist.ValueCard = ismember;                   //存放是否会员
+            //p_orderlist.ValueCardNo = label6.Text;              //存放会员名称
+            //p_orderlist.MemberNo = textBox3.Text;               //存放会员号
+
+            Funs.Constant.pause_order_list.Add(p_orderlist);
+
+            truncatedetail();
+
+        }
+
+        //取消挂单
+        private void btnQXGuaDan_Click(object sender, EventArgs e)
+        {
+            #region 无挂单情况
+            if (Funs.Constant.pause_order_list.Count < 1)
+            {
+                MessageBox.Show("没有挂单数据。");
+                if (dataGridView1.RowCount > 0)
+                {
+                    varBarCode.Focus();
+                    varBarCode.SelectAll();
+                }
+                else
+                {
+
+                }
+                return;
+            }
+
+
+            #endregion
+
+            #region 当前有单情况取消单
+
+            if (dataGridView1.RowCount > 0)
+            {
+                if (MessageBox.Show("当前订单未完成，是否挂单？", "确认", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    btnGuaDan_Click(null, EventArgs.Empty);
+                }
+                else
+                {
+                    //选择否，继续收银
+                    varBarCode.Focus();
+                    varBarCode.SelectAll();
+                    return;
+                }
+            }
+            #endregion
+
+            #region 有挂单情况
+            if (Funs.Constant.pause_order_list.Count == 1)
+            {
+                for (int i = 0; i < Funs.Constant.list_puase.Count; i++)
+                {
+                    Funs.GridUtil.AppendRow(bindingSource1, Funs.Constant.list_puase[i]);
+                }
+                this.sale_id = Funs.Constant.pause_order_list[0].FlowNo;
+                this.goodnum = Funs.Constant.pause_order_list[0].GoodsNum;
+                this.goodprice = Funs.Constant.pause_order_list[0].ReceivablePrice;
+                this.grid_index_num = Funs.Constant.pause_order_list[0].Status;
+                this.price_member = Funs.Constant.pause_order_list[0].Received;
+                this.ismember = (int)Funs.Constant.pause_order_list[0].ValueCard;
+
+
+                lblMemberInfo.Text = Funs.Constant.pause_order_list[0].ValueCardNo;
+                varMemInfo.Text = Funs.Constant.pause_order_list[0].MemberNo;
+
+                Funs.Constant.pause_order_list.Clear();
+                Funs.Constant.list_puase.Clear();
+                varBarCode.Focus();
+                varBarCode.SelectAll();
+
+            }
+            else
+            {
+                //调取显示所有挂单项界面
+                getpauseorderForm frm = new getpauseorderForm();
+                frm.dataGridView1.DataSource = Funs.Constant.pause_order_list;
+                frm.ShowDialog(this);
+
+                varBarCode.Focus();
+                varBarCode.SelectAll();
+            }
+            #endregion
+
+
+        }
+
+        //删除选中物品
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            goodsdelfromgrid();
+        }
+
+        private void goodsdelfromgrid()
+        {
+            if (dataGridView1.RowCount > 0)
+            {
+                if (MessageBox.Show("确定要删除当前商品吗?", "确认删除", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    goodnum -= (int)dataGridView1.CurrentRow.Cells["GoodsNum"].Value;
+                    goodprice -= (decimal)dataGridView1.CurrentRow.Cells["SalePrice"].Value;
+                    price_member -= (decimal)dataGridView1.CurrentRow.Cells["MemberPrice"].Value *
+                        (int)dataGridView1.CurrentRow.Cells["GoodsNum"].Value;
+
+                    freshtext();
+                    this.dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+                }
+            }
+
+            //
+            varBarCode.Focus();
+            varBarCode.SelectAll();
+        }
+
+        //刷新界面+舍零
+        private void freshtext()
+        {
+            lblGoodsNum.Text = goodnum.ToString(); // 商品数量
+            lblGoodsPrice.Text = goodprice.ToString("0.00"); // 商品原价
+
+            try
+            {
+                if (String.IsNullOrEmpty(varDiscount.Text))
+                {
+                    //varDiscount.Focus();
+                    varDiscount.Text = "100";
+                }
+
+                if (ismember == 1)
+                {
+                    price_zk = price_member * (Convert.ToDecimal(varDiscount.Text)) * (decimal)0.01;
+                }
+                else
+                {
+                    price_zk = goodprice * (Convert.ToDecimal(varDiscount.Text)) * (decimal)0.01;
+                }
+            }
+            catch
+            {
+
+            }
+
+            //舍零_0.5元
+            if (rbtn_0_5.Checked == true)
+            {
+
+            }
+
+            //舍零_1元
+            if (rbtn_1.Checked == true)
+            {
+
+            }
+            //舍零_5元
+            if (rbtn_5.Checked == true)
+            {
+
+            }
+            //舍零_10元
+            if (rbtn_10.Checked == true)
+            {
+
+            }
+            //舍零_10元
+            if (rbtn_none.Checked == true)
+            {
+
+            }
+        }
+
+        //多条挂单数据,选择处理
+        public void orderSelectEnter(int orderIndex)
+        {
+            this.sale_id = Funs.Constant.pause_order_list[orderIndex].FlowNo;
+            this.goodnum = Funs.Constant.pause_order_list[orderIndex].GoodsNum;
+            this.goodprice = Funs.Constant.pause_order_list[orderIndex].ReceivablePrice;
+            this.grid_index_num = Funs.Constant.pause_order_list[orderIndex].Status;
+            this.price_member = Funs.Constant.pause_order_list[orderIndex].Received;
+            this.ismember = (int)Funs.Constant.pause_order_list[orderIndex].ValueCard;
+
+            lblMemberInfo.Text = Funs.Constant.pause_order_list[orderIndex].ValueCardNo;
+            varMemInfo.Text = Funs.Constant.pause_order_list[orderIndex].MemberNo;
+
+            bindingSource1.DataSource = Funs.Constant.list_puase.FindAll(delegate(sx.Model.pos_OrderDetail pp) { return pp.OrderID == this.sale_id; });
+
+            Funs.Constant.pause_order_list.RemoveAt(orderIndex);
+            Funs.Constant.list_puase.RemoveAll(
+                delegate(sx.Model.pos_OrderDetail pp)
+                {
+                    return pp.OrderID == this.sale_id;
+                });
+
+        }
+
+        //订单数据存库
+
+        public void saveData(decimal receivedMoney, decimal changeMoney, int iscash)
+        {
+            //订单与订单详情
+            decimal tot_costprice = (decimal)0.0;
+            List<sx.Model.posGoods> listgoods = new List<sx.Model.posGoods>();
+
+            for (int iii = 0; iii < dataGridView1.RowCount; iii++)
+            {
+                sx.Model.pos_OrderDetail saledetail = new sx.Model.pos_OrderDetail();
+                sx.Model.posGoods salegoods = new sx.Model.posGoods();
+                //
+
+            }
+
+            //if ()
+            //{
+
+            //}
+        }
 
     }
 }

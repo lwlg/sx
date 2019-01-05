@@ -53,6 +53,21 @@ namespace sx.Service
             return list;
         }
 
+        public sx.Model.posGoods GetGoodsByBarCode_MustOne(string code)
+        {
+            ConditionItem item = new ConditionItem("BarCode", code, SearchType.Accurate);
+            List<Model.posGoods> list = r.FindByCondition(item);
+            if (list.Count > 0)
+            {
+                return (sx.Model.posGoods)list[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
         public bool DelGoods(string id)
         {
             return r.Delete(id);

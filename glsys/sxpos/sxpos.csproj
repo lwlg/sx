@@ -151,11 +151,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sale\ChangeGoodsNum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sale\ChangeGoodsNum.Designer.cs">
+      <DependentUpon>ChangeGoodsNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sale\getpauseorderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sale\getpauseorderForm.Designer.cs">
+      <DependentUpon>getpauseorderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sale\GoodSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sale\GoodSelectForm.Designer.cs">
+      <DependentUpon>GoodSelectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="sale\MemberSelect.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="sale\MemberSelect.Designer.cs">
       <DependentUpon>MemberSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sale\payForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sale\payForm.Designer.cs">
+      <DependentUpon>payForm.cs</DependentUpon>
     </Compile>
     <Compile Include="sale\saleForm.cs">
       <SubType>Form</SubType>
@@ -212,8 +236,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="sale\ChangeGoodsNum.resx">
+      <DependentUpon>ChangeGoodsNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sale\getpauseorderForm.resx">
+      <DependentUpon>getpauseorderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sale\GoodSelectForm.resx">
+      <DependentUpon>GoodSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sale\MemberSelect.resx">
       <DependentUpon>MemberSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sale\payForm.resx">
+      <DependentUpon>payForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sale\saleForm.resx">
       <DependentUpon>saleForm.cs</DependentUpon>
