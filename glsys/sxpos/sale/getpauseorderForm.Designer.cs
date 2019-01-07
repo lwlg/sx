@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MemberNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +61,11 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -87,11 +93,30 @@
             this.Modifier,
             this.Status,
             this.Scores});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(937, 261);
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.RowTemplate.Height = 35;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1070, 376);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
@@ -101,6 +126,7 @@
             this.ID.DataPropertyName = "ID";
             this.ID.HeaderText = "订单号";
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             this.ID.Visible = false;
             // 
             // MemberNo
@@ -108,6 +134,7 @@
             this.MemberNo.DataPropertyName = "MemberNo";
             this.MemberNo.HeaderText = "会员号";
             this.MemberNo.Name = "MemberNo";
+            this.MemberNo.ReadOnly = true;
             this.MemberNo.Visible = false;
             // 
             // FlowNo
@@ -115,18 +142,21 @@
             this.FlowNo.DataPropertyName = "FlowNo";
             this.FlowNo.HeaderText = "订单流水号";
             this.FlowNo.Name = "FlowNo";
+            this.FlowNo.ReadOnly = true;
             // 
             // GoodsNum
             // 
             this.GoodsNum.DataPropertyName = "GoodsNum";
             this.GoodsNum.HeaderText = "商品数量";
             this.GoodsNum.Name = "GoodsNum";
+            this.GoodsNum.ReadOnly = true;
             // 
             // OriginalPrice
             // 
             this.OriginalPrice.DataPropertyName = "OriginalPrice";
             this.OriginalPrice.HeaderText = "原始价格";
             this.OriginalPrice.Name = "OriginalPrice";
+            this.OriginalPrice.ReadOnly = true;
             this.OriginalPrice.Visible = false;
             // 
             // Discount
@@ -134,6 +164,7 @@
             this.Discount.DataPropertyName = "Discount";
             this.Discount.HeaderText = "总优惠金额";
             this.Discount.Name = "Discount";
+            this.Discount.ReadOnly = true;
             this.Discount.Visible = false;
             // 
             // NCSC
@@ -141,6 +172,7 @@
             this.NCSC.DataPropertyName = "NCSC";
             this.NCSC.HeaderText = "抹零";
             this.NCSC.Name = "NCSC";
+            this.NCSC.ReadOnly = true;
             this.NCSC.Visible = false;
             // 
             // ReceivablePrice
@@ -148,12 +180,14 @@
             this.ReceivablePrice.DataPropertyName = "ReceivablePrice";
             this.ReceivablePrice.HeaderText = "订单金额";
             this.ReceivablePrice.Name = "ReceivablePrice";
+            this.ReceivablePrice.ReadOnly = true;
             // 
             // Received
             // 
             this.Received.DataPropertyName = "Received";
             this.Received.HeaderText = "实收金额";
             this.Received.Name = "Received";
+            this.Received.ReadOnly = true;
             this.Received.Visible = false;
             // 
             // Change
@@ -161,6 +195,7 @@
             this.Change.DataPropertyName = "Change";
             this.Change.HeaderText = "找零";
             this.Change.Name = "Change";
+            this.Change.ReadOnly = true;
             this.Change.Visible = false;
             // 
             // DiscountRate
@@ -168,6 +203,7 @@
             this.DiscountRate.DataPropertyName = "DiscountRate";
             this.DiscountRate.HeaderText = "整单折扣率";
             this.DiscountRate.Name = "DiscountRate";
+            this.DiscountRate.ReadOnly = true;
             this.DiscountRate.Visible = false;
             // 
             // Profit
@@ -175,6 +211,7 @@
             this.Profit.DataPropertyName = "Profit";
             this.Profit.HeaderText = "利润额";
             this.Profit.Name = "Profit";
+            this.Profit.ReadOnly = true;
             this.Profit.Visible = false;
             // 
             // PayType
@@ -182,6 +219,7 @@
             this.PayType.DataPropertyName = "PayType";
             this.PayType.HeaderText = "支付类型";
             this.PayType.Name = "PayType";
+            this.PayType.ReadOnly = true;
             this.PayType.Visible = false;
             // 
             // Cash
@@ -189,6 +227,7 @@
             this.Cash.DataPropertyName = "Cash";
             this.Cash.HeaderText = "现金";
             this.Cash.Name = "Cash";
+            this.Cash.ReadOnly = true;
             this.Cash.Visible = false;
             // 
             // BandCard
@@ -196,6 +235,7 @@
             this.BandCard.DataPropertyName = "BandCard";
             this.BandCard.HeaderText = "银行卡";
             this.BandCard.Name = "BandCard";
+            this.BandCard.ReadOnly = true;
             this.BandCard.Visible = false;
             // 
             // IsPostCard
@@ -203,6 +243,7 @@
             this.IsPostCard.DataPropertyName = "IsPostCard";
             this.IsPostCard.HeaderText = "是否绿卡";
             this.IsPostCard.Name = "IsPostCard";
+            this.IsPostCard.ReadOnly = true;
             this.IsPostCard.Visible = false;
             // 
             // Coupon
@@ -210,6 +251,7 @@
             this.Coupon.DataPropertyName = "Coupon";
             this.Coupon.HeaderText = "优惠卷";
             this.Coupon.Name = "Coupon";
+            this.Coupon.ReadOnly = true;
             this.Coupon.Visible = false;
             // 
             // ValueCard
@@ -217,6 +259,7 @@
             this.ValueCard.DataPropertyName = "ValueCard";
             this.ValueCard.HeaderText = "储值卡";
             this.ValueCard.Name = "ValueCard";
+            this.ValueCard.ReadOnly = true;
             this.ValueCard.Visible = false;
             // 
             // ValueCardNo
@@ -224,6 +267,7 @@
             this.ValueCardNo.DataPropertyName = "ValueCardNo";
             this.ValueCardNo.HeaderText = "储值卡号";
             this.ValueCardNo.Name = "ValueCardNo";
+            this.ValueCardNo.ReadOnly = true;
             this.ValueCardNo.Visible = false;
             // 
             // CreateTime
@@ -231,18 +275,21 @@
             this.CreateTime.DataPropertyName = "CreateTime";
             this.CreateTime.HeaderText = "挂单时间";
             this.CreateTime.Name = "CreateTime";
+            this.CreateTime.ReadOnly = true;
             // 
             // Memo
             // 
             this.Memo.DataPropertyName = "Memo";
             this.Memo.HeaderText = "备注";
             this.Memo.Name = "Memo";
+            this.Memo.ReadOnly = true;
             // 
             // UpdateTime
             // 
             this.UpdateTime.DataPropertyName = "UpdateTime";
             this.UpdateTime.HeaderText = "修改时间";
             this.UpdateTime.Name = "UpdateTime";
+            this.UpdateTime.ReadOnly = true;
             this.UpdateTime.Visible = false;
             // 
             // Modifier
@@ -250,6 +297,7 @@
             this.Modifier.DataPropertyName = "Modifier";
             this.Modifier.HeaderText = "修改人";
             this.Modifier.Name = "Modifier";
+            this.Modifier.ReadOnly = true;
             this.Modifier.Visible = false;
             // 
             // Status
@@ -257,6 +305,7 @@
             this.Status.DataPropertyName = "Status";
             this.Status.HeaderText = "状态";
             this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             this.Status.Visible = false;
             // 
             // Scores
@@ -264,14 +313,17 @@
             this.Scores.DataPropertyName = "Scores";
             this.Scores.HeaderText = "积分";
             this.Scores.Name = "Scores";
+            this.Scores.ReadOnly = true;
             this.Scores.Visible = false;
             // 
             // getpauseorderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 261);
+            this.ClientSize = new System.Drawing.Size(1070, 376);
             this.Controls.Add(this.dataGridView1);
+            this.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "getpauseorderForm";
             this.Text = "选择代售订单";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

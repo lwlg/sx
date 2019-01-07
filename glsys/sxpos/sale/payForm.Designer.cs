@@ -42,37 +42,42 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(27, 41);
+            this.label1.Location = new System.Drawing.Point(40, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 27);
+            this.label1.Size = new System.Drawing.Size(140, 40);
             this.label1.TabIndex = 0;
             this.label1.Text = "应收：";
             // 
             // varreceivable
             // 
             this.varreceivable.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.varreceivable.Location = new System.Drawing.Point(129, 35);
+            this.varreceivable.Location = new System.Drawing.Point(194, 52);
+            this.varreceivable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.varreceivable.Name = "varreceivable";
-            this.varreceivable.Size = new System.Drawing.Size(150, 38);
-            this.varreceivable.TabIndex = 1;
+            this.varreceivable.ReadOnly = true;
+            this.varreceivable.Size = new System.Drawing.Size(223, 53);
+            this.varreceivable.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(27, 92);
+            this.label2.Location = new System.Drawing.Point(40, 138);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 27);
+            this.label2.Size = new System.Drawing.Size(140, 40);
             this.label2.TabIndex = 0;
             this.label2.Text = "实收：";
             // 
             // varReceived
             // 
             this.varReceived.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.varReceived.Location = new System.Drawing.Point(129, 86);
+            this.varReceived.Location = new System.Drawing.Point(194, 129);
+            this.varReceived.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.varReceived.Name = "varReceived";
-            this.varReceived.Size = new System.Drawing.Size(150, 38);
-            this.varReceived.TabIndex = 1;
+            this.varReceived.Size = new System.Drawing.Size(223, 53);
+            this.varReceived.TabIndex = 0;
             this.varReceived.Enter += new System.EventHandler(this.varReceived_Enter);
             this.varReceived.Leave += new System.EventHandler(this.varReceived_Leave);
             // 
@@ -80,27 +85,31 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(27, 149);
+            this.label3.Location = new System.Drawing.Point(40, 224);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 27);
+            this.label3.Size = new System.Drawing.Size(140, 40);
             this.label3.TabIndex = 0;
             this.label3.Text = "找零：";
             // 
             // varChange
             // 
             this.varChange.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.varChange.Location = new System.Drawing.Point(129, 143);
+            this.varChange.Location = new System.Drawing.Point(194, 214);
+            this.varChange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.varChange.Name = "varChange";
-            this.varChange.Size = new System.Drawing.Size(150, 38);
-            this.varChange.TabIndex = 1;
+            this.varChange.ReadOnly = true;
+            this.varChange.Size = new System.Drawing.Size(223, 53);
+            this.varChange.TabIndex = 4;
             // 
             // btnEnter
             // 
             this.btnEnter.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnEnter.Location = new System.Drawing.Point(327, 29);
+            this.btnEnter.Location = new System.Drawing.Point(490, 44);
+            this.btnEnter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(139, 56);
-            this.btnEnter.TabIndex = 2;
+            this.btnEnter.Size = new System.Drawing.Size(208, 84);
+            this.btnEnter.TabIndex = 1;
             this.btnEnter.Text = "清算\r\nEnter";
             this.btnEnter.UseVisualStyleBackColor = true;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
@@ -108,9 +117,10 @@
             // btnESC
             // 
             this.btnESC.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnESC.Location = new System.Drawing.Point(327, 120);
+            this.btnESC.Location = new System.Drawing.Point(490, 180);
+            this.btnESC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnESC.Name = "btnESC";
-            this.btnESC.Size = new System.Drawing.Size(139, 56);
+            this.btnESC.Size = new System.Drawing.Size(208, 84);
             this.btnESC.TabIndex = 2;
             this.btnESC.Text = "取消\r\nESC";
             this.btnESC.UseVisualStyleBackColor = true;
@@ -118,9 +128,9 @@
             // 
             // payForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 222);
+            this.ClientSize = new System.Drawing.Size(753, 333);
             this.Controls.Add(this.btnESC);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.varChange);
@@ -129,6 +139,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.varreceivable);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "payForm";
             this.Text = "收款";
             this.ResumeLayout(false);

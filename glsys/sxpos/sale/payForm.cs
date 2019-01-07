@@ -14,6 +14,8 @@ namespace sxpos.sale
         public payForm()
         {
             InitializeComponent();
+
+            varReceived.Focus();
             this.KeyPreview = true;
         }
 
