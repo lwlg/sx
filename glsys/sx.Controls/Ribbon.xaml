@@ -18,51 +18,51 @@
                 </my:RibbonApplicationMenu>
             </my:Ribbon.ApplicationMenu>
             <!-- 选项1 -->
-            <my:RibbonTab x:Name="HomeTab" Header="进销存" d:IsHidden="True">
+            <my:RibbonTab x:Name="HomeTab" Header="进销存">
                 <my:RibbonGroup x:Name="HomeG1" Header="进销存管理">
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnCash"  Label="商品销售(F1)" />
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnGoods"  Label="商品管理(F2)"  Margin="2,0,0,0"/>
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnMember" Label="会员管理(F3)" Margin="2,0,0,0" />
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnCash"  LargeImageSource="Images/59.png" Label="商品销售(F1)" />
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnGoods" LargeImageSource="Images/31.png" Label="商品管理(F2)"  Margin="2,0,0,0"/>
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnMember" LargeImageSource="Images/16.png" Label="会员管理(F3)" Margin="2,0,0,0" />
                 </my:RibbonGroup>
 
                 <my:RibbonGroup x:Name="HomeG2" Header="查询统计">
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnIns" Label="入库记录(F4)" />
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnSale"   Label="销售记录(F5)" Margin="2,0,0,0"/>
-                    <my:RibbonSplitButton x:FieldModifier="public" x:Name="btnReport" Label="销售分析" Margin="2,0,0,0">
-                        <my:RibbonButton x:FieldModifier="public" x:Name="btnRpt1"   Label="店铺销售分析" />
-                        <my:RibbonButton x:FieldModifier="public" x:Name="btnRpt2"   Label="商品销售分析" />
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnIns"  LargeImageSource="Images/3.png" Label="入库记录(F4)" />
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnSale"  LargeImageSource="Images/37.png" Label="销售记录(F5)" Margin="2,0,0,0"/>
+                    <my:RibbonSplitButton x:FieldModifier="public" x:Name="btnReport" LargeImageSource="Images/static.png" Label="销售分析" Margin="2,0,0,0">
+                        <my:RibbonButton x:FieldModifier="public" x:Name="btnRpt1"  LargeImageSource="Images/11.png" Label="店铺销售分析" />
+                        <my:RibbonButton x:FieldModifier="public" x:Name="btnRpt2"  LargeImageSource="Images/11.png" Label="商品销售分析" />
                     </my:RibbonSplitButton>
                 </my:RibbonGroup>
 
                 <my:RibbonGroup x:Name="HomeG3" Header="系统">
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnChangePwd"   Label="修改密码" />
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnRestart"   Label="系统注销" />
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnExit"   Label="退出系统" />
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnChangePwd"  LargeImageSource="Images/11.png" Label="修改密码" />
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnRestart"  LargeImageSource="Images/restart.png" Label="系统注销" />
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnExit"  LargeImageSource="Images/exit.png" Label="退出系统" />
                 </my:RibbonGroup>
             </my:RibbonTab>
 
             <!-- 选项2 -->
             <my:RibbonTab x:Name="SystemTab" Header="系统设置" Padding="0">
                 <my:RibbonGroup x:Name="SystemG1" Header="系统常用设置">
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnPrintSetting"   Label="打印机设置" />
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnSysSetting"   Label="习惯设置"  Margin="3,0,0,0"/>
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnSupplier"  Label="供应商管理"  Margin="3,0,0,0"/>
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnPrintSetting"  LargeImageSource="Images/printer.png" Label="打印机设置" />
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnSysSetting"  LargeImageSource="Images/GoodsType.png" Label="习惯设置"  Margin="3,0,0,0"/>
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnSupplier"  LargeImageSource="Images/57.png" Label="供应商管理"  Margin="3,0,0,0"/>
                 </my:RibbonGroup>
 
                 <my:RibbonGroup x:Name="SystemG2" Header="店铺人员管理">
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnUserAdd"    Label="店员增加" />
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnUserList"   Label="店员管理"  Margin="3,0,0,0"/>
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnUserAdd"  LargeImageSource="Images/userAdd.png" Label="店员增加" />
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnUserList"  LargeImageSource="Images/userList.png" Label="店员管理"  Margin="3,0,0,0"/>
                 </my:RibbonGroup>
 
                 <my:RibbonGroup x:Name="SystemG3" Header="系统类别管理">
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnGoodsType"  Label="商品类别管理" />
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnBrandType"  Label="商品品牌管理"  Margin="3,0,0,0"/>
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnUnitType"   Label="商品单位管理"  Margin="3,0,0,0"/>
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnGoodsType"  LargeImageSource="Images/GoodsType.png" Label="商品类别管理" />
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnBrandType"  LargeImageSource="Images/BrandType.png" Label="商品品牌管理"  Margin="3,0,0,0"/>
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnUnitType"  LargeImageSource="Images/dic.png" Label="商品单位管理"  Margin="3,0,0,0"/>
                 </my:RibbonGroup>
 
                 <my:RibbonGroup x:Name="SystemG4" Header="数据库管理">
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnBackup"    Label="数据库备份" />
-                    <my:RibbonButton x:FieldModifier="public" x:Name="btnRestore"   Label="数据库恢复"  Margin="3,0,0,0"/>
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnBackup"  LargeImageSource="Images/Backup.png" Label="数据库备份" />
+                    <my:RibbonButton x:FieldModifier="public" x:Name="btnRestore"  LargeImageSource="Images/Restore.png" Label="数据库恢复"  Margin="3,0,0,0"/>
                 </my:RibbonGroup>
 
 
