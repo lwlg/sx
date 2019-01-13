@@ -56,7 +56,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.varBuyingPrice = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.varRetailPrice1 = new System.Windows.Forms.TextBox();
+            this.varRetailPrice = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.varGoodsName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -182,7 +182,7 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.varBuyingPrice);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.varRetailPrice1);
+            this.groupBox1.Controls.Add(this.varRetailPrice);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.varGoodsName);
             this.groupBox1.Controls.Add(this.label3);
@@ -350,13 +350,13 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "商品进价:";
             // 
-            // varRetailPrice1
+            // varRetailPrice
             // 
-            this.varRetailPrice1.Location = new System.Drawing.Point(77, 126);
-            this.varRetailPrice1.Name = "varRetailPrice1";
-            this.varRetailPrice1.Size = new System.Drawing.Size(100, 21);
-            this.varRetailPrice1.TabIndex = 1;
-            this.varRetailPrice1.Text = "100";
+            this.varRetailPrice.Location = new System.Drawing.Point(77, 126);
+            this.varRetailPrice.Name = "varRetailPrice";
+            this.varRetailPrice.Size = new System.Drawing.Size(100, 21);
+            this.varRetailPrice.TabIndex = 1;
+            this.varRetailPrice.Text = "100";
             // 
             // label9
             // 
@@ -416,7 +416,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 374);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GoodMng";
             this.Text = "添加商品信息";
@@ -461,7 +460,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox varBuyingPrice;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox varRetailPrice1;
+        private System.Windows.Forms.TextBox varRetailPrice;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox varGoodsName;
         private System.Windows.Forms.Label label3;

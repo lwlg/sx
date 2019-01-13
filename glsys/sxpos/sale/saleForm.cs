@@ -680,7 +680,7 @@ namespace sxpos.sale
                 {
                     for (int iii = 0; iii < listgoods.Count; iii++)
                     {
-                        string sql = "update posGoods set total = total -" + listgoods[iii].Alarm + " where id='" + listgoods[iii].ID + "' and barcode='" + listgoods[iii].BarCode + "'";
+                        string sql = "update pos_Goods set total = total -" + listgoods[iii].Alarm + " where id='" + listgoods[iii].ID + "' and barcode='" + listgoods[iii].BarCode + "'";
                         int resp = NDolls.Data.RepositoryBase<sx.Model.posGoods>.Excute(sql);
                     }
                     if (ismember == 1)
